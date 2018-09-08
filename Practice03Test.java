@@ -21,7 +21,6 @@ public class Practice03Test {
 		generate_array();
 	}
 
-
 	/**
 	 * print_array: prints the array of doubles... formatted so it fits
 	 * ... on many small screens.
@@ -54,11 +53,32 @@ public class Practice03Test {
 
 	public int find_min_iterative () {
 		// TODO: Fill in this iterative function.
+		int min=0;
+		for(int i = 1; i<arr.length-1;i++) {
+			if(arr[i]< arr[min]) {
+				min = i;
+			}
+		}
+		return min;
 	}
 
 
 	public int find_min_recursive () {
 		// TODO: Fill in this recursive function.
+		return find_min_recursive(0,arr.length-1);
+	}
+
+	private int find_min_recursive(int start, int last) {
+		// TODO Auto-generated method stub
+		if(start == last){
+			return start;
+		}
+		if(arr[start] <= arr[last]) {
+			last -= 1;
+		} else {
+			start += 1;
+		}
+		return find_min_recursive(start, last);
 	}
 
 
